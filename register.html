@@ -1,0 +1,90 @@
+<!doctype>
+<html>
+<head>
+</head>
+<body style="color:white;">
+<h3>Hey!This is a user registration form</h3>
+<p>to buy books from this college website, you need to fill this form with appropriate details.</p>
+<hr>
+<form id="registrationForm">
+<label for="fname">First Name: </label>
+<input type="text" id="fname"><br><br>
+
+<label for="lname">Last Name: </label>
+<input type="text" id="lname"><br><br>
+
+<label for="gd">choose your gender:</label>
+<select name="gender" id="gd">
+<option value="F">Female</option>
+<option value="M">Male</option>
+<option value="None">Prefer not to say</option>
+</select><br><br>
+<label for="pwd">Password: </label>
+<input type="password" id="pwd"><br><br>
+
+<label for="mail">Email Id: </label>
+<input type="text" id="mail"><br><br>
+
+<label for="ph">Phone Number: </label>
+<input type="text" id="ph"><br><br>
+
+<label for="sk">Choose your domain:</label>
+<select name="skill set" id="sk">
+<option value="csbs">CSBS</option>
+<option value='cse'>CSE</option>
+<option value="ECE">ECE</option>
+<option value="EEE">EEE</option>
+<option value="CIVIL">CIVIL</option>
+</select><br><br>
+
+<label for="it">list out the book names as it is displayed in the book store which you wish to buy</label>
+<textarea name="intro" id="it" rows="4" cols="18">decsribe the book-list with right info</textarea><br><br>
+
+<input type="button" value="submit" onclick="validateRegistration()">
+
+</form>
+<hr>
+<pr> Thank you for showing <em>intrest</em> in our bookstore. <br>Your details will be verified and will contact you soon!</p>
+
+<script>
+function validateRegistration() {
+    var firstName = document.getElementById("fname").value;
+    var lastName = document.getElementById("lname").value;
+    var password = document.getElementById("pwd").value;
+    var email = document.getElementById("mail").value;
+    var phone = document.getElementById("ph").value;
+    var errorMessages = "";
+
+    if (firstName === "") {
+        errorMessages += "First Name cannot be empty.\n";
+    }
+
+    if (lastName === "") {
+        errorMessages += "Last Name cannot be empty.\n";
+    }
+
+    if (password.length < 6) {
+        errorMessages += "Password must be at least 6 characters long.\n";
+    }
+
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        errorMessages += "Invalid Email Id.\n";
+    }
+
+    var phonePattern = /^\d{10}$/;
+    if (!phonePattern.test(phone)) {
+        errorMessages += "Phone Number must be a valid 10-digit number.\n";
+    }
+
+    if (errorMessages) {
+        alert(errorMessages);
+    } else {
+        alert("Registration successful!");
+        // You can add further processing here if needed
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+</head>
+<body style="color:white;">
+<h3>Hey!This is a registered user login page</h3>
+<p>to login to this website, you need to enter appropriate details.</p>
+<hr>
+<form id="loginForm">
+<label for="fname">Login Name: </label>
+<input type="text" id="fname"><br><br>
+
+<label for="pwd">Password: </label>
+<input type="password" id="pwd"><br><br>
+<input type="button" value="login" onclick="validateLogin()">
+</form>
+<script>
+function validateLogin() {
+    var loginName = document.getElementById("fname").value;
+    var password = document.getElementById("pwd").value;
+    var errorMessages = "";
+
+    if (loginName === "") {
+        errorMessages += "Login Name cannot be empty.\n";
+    }
+
+    if (password === "") {
+        errorMessages += "Password cannot be empty.\n";
+    }
+
+    if (errorMessages) {
+        alert(errorMessages);
+    } else {
+        alert("Login successful!");
+        // You can add further processing here if needed
+    }
+}
+</script>
+</body>
+</html>
